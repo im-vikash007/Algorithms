@@ -13,7 +13,15 @@ void Max_sum_subarray(int arr[],int n)
     for(int i=1;i<n;i++)
     {
         global_sum=std::max({arr[i],arr[i]+current_sum,global_sum},comp);
-        current_sum=std::max(arr[i],arr[i]+current_sum);
+        //current_sum=std::max(arr[i],arr[i]+current_sum);
+        if(current_sum+arr[i]>=arr[i])
+        { 
+            current_sum=current_sum+arr[i];
+        }
+        else
+        {
+            current_sum=arr[i];
+        }
         if(current_sum==arr[i])
         {
            // current_sum=arr[i]+current_sum;
